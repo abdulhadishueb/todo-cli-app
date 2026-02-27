@@ -2,7 +2,7 @@ print("--- DEBUG: FILE IS LOADING ---")
 
 import os
 
-FILENAME = "tasks.txt"
+FILENAME = os.path.join(os.path.dirname(__file__), ".." ,"tasks.txt")
 
 def load_tasks():
     """
