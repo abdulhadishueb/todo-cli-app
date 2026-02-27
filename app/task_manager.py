@@ -32,11 +32,21 @@ if __name__ == "__main__":
 
         if choice == "1":
             val = input("Task description: ")
-            add_task(val)
+            if val.strip():
+               add_task(val)
+            else:
+               print("Task cannot be empty.")
         elif choice == "2":
             try:
-                idx = int(input("Task number to remove: "))
-                delete_task(idx)
+                user_num = int(input("Task number to remove: "))
+                target_index = user_num - 1
+                removed_task = delete_task(target_index)
+                
+                if removed_task:
+                    print(f"Successfully removed: {removed_task}")
+                else:
+                    print(f"Invalid selection: Task #{user_num} does not exist.")
+                    
             except (ValueError, IndexError):
                 print("Invalid selection.")
         elif choice == "3":
