@@ -1,5 +1,5 @@
 
-from  utilities.file_handler import load_tasks, save_tasks, FILENAME
+from  .utilities.file_handler import load_tasks, save_tasks, FILENAME
 
 TASKS = []
 
