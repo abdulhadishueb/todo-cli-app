@@ -10,7 +10,7 @@ def load_into_memory():
 def add_task(task):
     TASKS.append(task)
     save_tasks(TASKS)  # Sync to disk
-    print(f"---DEBUG: Saved {len(TASKS)} tasks to {FILENAME}---")
+    print(f"DEBUG: Saved {len(TASKS)} tasks to {FILENAME}")
 
 def delete_task(index):
     if 0 <= index < len(TASKS):
