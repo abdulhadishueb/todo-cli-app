@@ -46,7 +46,7 @@ class TodoCLI:
             print("2. Delete Task.")
             print("3. Exit.")
 
-            choice = input("[purple]Select an option: [/purple]").strip()
+            choice = input("Select an option: ").strip()
 
             if choice == "1":
                 self.add_task_ui()
@@ -55,7 +55,7 @@ class TodoCLI:
                 self.delete_task_ui()
 
             elif choice == "3":
-                print("[bold yellow]\nAdd Tasks so you dont forget[/bold yellow]")
+                print("[bold yellow]Come back![/bold yellow]")
                 break
 
             else:
