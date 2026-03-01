@@ -1,123 +1,120 @@
-# Todo CLI App
-
-## 📌 Project Overview
+📝 Todo CLI App
+📌 Project Overview
 
 This is a modular Python Command-Line Interface (CLI) To-Do application developed as a group project.
 
 The application allows users to:
-- Add tasks
-- View tasks
-- Delete tasks
 
-The system uses file-based persistence, meaning tasks are saved to a local file and remain available even after the program is closed and restarted.
+Add tasks
 
-This project demonstrates:
-- Modular Python structure
-- Separation of concerns
-- File I/O persistence
-- Git collaboration using feature branches and Pull Requests
+View tasks
 
----
+Delete tasks
 
-## 👥 Team Members
+The system uses file-based persistence, meaning tasks are saved to a local file (tasks.txt) and remain available even after the program is closed and restarted.
 
-- **Abdulhadi Mohamed** – Project Lead & Integration
-- **Amon-Sudo** – CLI Development
-- **BrianWairagi** – Task Logic & File Persistence
+👥 Team Members
 
----
+Abdulhadi Mohamed – Project Lead 
 
-## 🚀 Features
+Amon-Sudo – CLI Development
 
-- Interactive CLI menu
-- Add new tasks
-- View existing tasks
-- Delete tasks
-- Persistent storage using `tasks.txt`
-- Modular folder structure
-- Git feature-branch workflow
+Brian Wairagi – Task Logic & File Persistence
 
----
+🚀 Features
 
-## 🗂️ Project Structure
+Interactive CLI menu
 
+Add new tasks
 
+View existing tasks
+
+Delete tasks
+
+Persistent storage using tasks.txt
+
+Modular folder structure
+
+Git feature-branch workflow
+
+🗂️ Project Structure
 todo-cli-app/
 ├── main.py
-├──.gitignore
+├── tasks.txt
 ├── README.md
+├── .gitignore
 ├── app/
-│ ├── init.py
-│ ├── cli.py
-│ ├── task_manager.py
-│ └── utilities/
-│ ├── init.py
-│ └── file_handler.py
+│   ├── __init__.py
+│   ├── cli.py
+│   ├── task_manager.py
+│   └── utilities/
+│       ├── __init__.py
+│       └── file_handler.py
+▶️ How to Run the Application
 
-
-
-## ▶️ How to Run the Application
-
-1. Clone the repository:
+1️⃣ Clone the repository:
 
 git clone <repository-url>
 
-
-2. Navigate to the project directory:
+2️⃣ Navigate into the project directory:
 
 cd todo-cli-app
 
+3️⃣ Install required dependency:
 
-3. Run the application:
+pip install rich
+
+4️⃣ Run the application:
 
 python main.py
+💾 Data Persistence
 
-
----
-
-## 💾 Data Persistence
-
-The application saves tasks to a local file named:
-
+Tasks are saved inside a file called:
 
 tasks.txt
 
+This file is automatically created when the first task is added.
 
-This ensures that tasks remain saved even after restarting the program.
+When the application starts, tasks are loaded from this file into memory.
 
----
-
-## 🔄 Git Collaboration Workflow
+🔄 Git Collaboration Workflow
 
 We followed a feature-branch workflow:
 
-- Each team member worked on a separate feature branch
-- Changes were committed with meaningful messages
-- Pull Requests were created for each feature
-- Features were merged into the `main` branch after review
+Each team member worked on a separate feature branch
 
-This allowed clean collaboration and structured version control.
+Meaningful commit messages were used
 
----
+Pull Requests were created for each feature
 
-## 📚 Concepts Demonstrated
+Changes were reviewed before merging into the main branch
 
-- Modular Python project structure
-- Separation of concerns
-- File Input/Output (File I/O)
-- Basic error handling
-- Feature-branch Git workflow
-- Team collaboration
+This ensured clean collaboration and structured version control.
 
----
+📚 Concepts Demonstrated
 
-## ✅ Demo Flow
+Modular Python project structure
 
-The application can demonstrate:
+Separation of concerns
 
-1. Adding a task
-2. Viewing tasks
-3. Exiting the application
-4. Restarting and confirming tasks persist
+File Input/Output (File I/O)
 
----
+Basic error handling
+
+Object-Oriented Programming (OOP)
+
+Feature-branch Git workflow
+
+Team collaboration
+
+✅ Demo Flow
+
+The application demonstrates:
+
+Adding a task
+
+Viewing tasks
+
+Deleting tasks
+
+Restarting the application and confirming tasks persist
