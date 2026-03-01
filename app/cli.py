@@ -1,32 +1,34 @@
 from .task_manager import add_task, delete_task, load_into_memory, TASKS
 from rich import print
 def display_tasks():
-    print(f"[green bold]\nTODO APP | {len(TASKS)} Tasks[/green bold]")
+    load_into_memory()
+    print(f"[green bold]\nTODO APP | \n{len(TASKS)} Tasks[/green bold]")
     if not TASKS:
         print("No tasks available.")
     else:
         for i, task in enumerate(TASKS, start=1):
-            print(f"{i+1}. {task}")
+            print(f"{i}. {task}")
 
 def start():
-    load_into_memory()
+    
 
     while True:
         
+        display_tasks()
 
-        print("\n[1] Add Task")
-        print("[2] Delete Task")
-        print("[3] Exit")
+        print("\n1. Add Task.")
+        print("2. Delete Task.")
+        print("3. Exit.")
 
         choice = input("Select an option: ").strip()
 
         if choice == "1":
-            task = input("Enter task description: ").strip()
+            task = input("Type your task to be stored: ").strip()
             if task:
                 add_task(task)
                 print("Task added successfully.")
             else:
-                print("Task cannot be empty.")
+                print("Enter any task.")
 
         elif choice == "2":
             try:
