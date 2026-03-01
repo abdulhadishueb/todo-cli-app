@@ -1,25 +1,28 @@
 
-from  .utilities.file_handler import load_tasks, save_tasks, FILENAME
+from  utilities.file_handler import load_tasks, save_tasks, FILENAME
 
 TASKS = []
+DB = {} # Global variable to hold the entire database (tasks and users)
 
 def load_into_memory():
-    global TASKS
-    TASKS = load_tasks()
+    global TASKS, DB
+    DB = load_tasks()
+    TASKS = DB.get("tasks", [])
 
 def add_task(task):
     TASKS.append(task)
-    save_tasks(TASKS)  # Sync to disk
-    print(f"DEBUG: Saved {len(TASKS)} tasks to {FILENAME}")
+    DB["tasks"] = TASKS
+    save_tasks(DB) # Sync to disk
+    print(f"DEBUG: Saved  tasks to database")
 
 def delete_task(index):
     if 0 <= index < len(TASKS):
         removed = TASKS.pop(index)
-        save_tasks(TASKS)  # Sync to disk
+        save_tasks(DB)  # Sync to disk
         return removed
     return None
 
-if __name__ == "__main__":
+def main_menu():
     load_into_memory()
     
     while True:
@@ -36,6 +39,7 @@ if __name__ == "__main__":
                add_task(val)
             else:
                print("Task cannot be empty.")
+
         elif choice == "2":
             try:
                 user_num = int(input("Task number to remove: "))
@@ -52,3 +56,6 @@ if __name__ == "__main__":
         elif choice == "3":
             print("Goodbye!")
             break
+
+if __name__ == "__main__":
+    main_menu()
