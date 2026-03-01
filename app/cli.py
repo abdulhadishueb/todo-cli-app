@@ -1,18 +1,18 @@
 from .task_manager import add_task, delete_task, load_into_memory, TASKS
-
+from rich import print
 def display_tasks():
-    print(f"\n--- TODO APP | {len(TASKS)} Tasks ---")
+    print(f"[green bold]\nTODO APP | {len(TASKS)} Tasks[/green bold]")
     if not TASKS:
         print("No tasks available.")
     else:
         for i, task in enumerate(TASKS, start=1):
-            print(f"{i}. {task}")
+            print(f"{i+1}. {task}")
 
 def start():
     load_into_memory()
 
     while True:
-        display_tasks()
+        
 
         print("\n[1] Add Task")
         print("[2] Delete Task")
@@ -40,7 +40,7 @@ def start():
                 print("Please enter a valid number.")
 
         elif choice == "3":
-            print("Goodbye!")
+            print("[yellow bold]\nAdd Tasks so you dont forget[/yellow bold]")
             break
 
         else:
