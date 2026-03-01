@@ -1,14 +1,11 @@
-print("--- DEBUG: FILE IS LOADING ---")
-
 import os
 import json
 
 FILENAME = os.path.join(os.path.dirname(__file__), ".." ,"tasks.json")
 
+
 def load_tasks():
-    """
-    Reads tasks from the file and returns them as a list. If the file does not exist, it returns an empty list.
-    """
+    # If file does not exist, return empty list
     if not os.path.exists(FILENAME):
         print("No tasks file found. Starting with an empty task list.")
         return {"tasks": [],"users": []}

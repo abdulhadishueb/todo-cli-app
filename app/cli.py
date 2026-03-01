@@ -1,24 +1,23 @@
 from rich import print
-from .task_manager import add_task, delete_task, load_into_memory, TASKS
-
+from . import task_manager as tm
 class TodoCLI:
 
     def display_tasks(self):
         
 
-        print(f"[bold green]\nTODO APP | \n{len(TASKS)} Tasks[/bold green]")
+        print(f"[bold green]\nTODO APP | \n{len(tm.TASKS)} Tasks[/bold green]")
 
-        if not TASKS:
+        if not tm.TASKS:
             print("No tasks available.")
         else:
-            for i, task in enumerate(TASKS, start=1):
+            for i, task in enumerate(tm.TASKS, start=1):
                 print(f"[cyan]{i}.[/cyan] {task}")
 
     def add_task_ui(self):
         task = input("Type your task to be stored: ").strip()
 
         if task:
-            add_task(task)
+            tm.add_task(task)
             print("[green]Task added successfully.[/green]")
         else:
             print("[red]Enter any task.[/red]")
@@ -26,7 +25,7 @@ class TodoCLI:
     def delete_task_ui(self):
         try:
             number = int(input("Enter task number to delete: "))
-            removed = delete_task(number - 1)
+            removed = tm.delete_task(number - 1)
 
             if removed:
                 print(f"[green]Removed:[/green] {removed}")
@@ -37,7 +36,7 @@ class TodoCLI:
             print("[red]Please enter a valid number.[/red]")
 
     def start(self):
-        load_into_memory()
+        tm.load_into_memory()
         while True:
 
             self.display_tasks()
