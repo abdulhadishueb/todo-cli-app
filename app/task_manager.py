@@ -1,21 +1,39 @@
 from rich import print
-from  .utilities.file_handler import load_tasks, save_tasks, FILENAME
+from .utilities.file_handler import load_tasks, save_tasks, FILENAME
 
 TASKS = []
 
 def load_into_memory():
     TASKS.clear()
-    TASKS.extend(load_tasks())
+    loaded = load_tasks()
+
+    for item in loaded:
+        if isinstance(item, str):
+            TASKS.append({
+                "description": item,
+                "completed": False
+            })
+        else:
+            TASKS.append(item)
 
 def add_task(task):
-    TASKS.append(task)
-    save_tasks(TASKS)  # Sync to disk
-    print(f"DEBUG:[blue bold] Saved {len(TASKS)} tasks to[/blue bold] {FILENAME}")
+    TASKS.append({
+        "description": task,
+        "completed": False
+    })
+    save_tasks(TASKS)
+    print(f"DEBUG: [blue bold]Saved {len(TASKS)} tasks to[/blue bold] {FILENAME}")
+
+def complete_task(index):
+    if 0 <= index < len(TASKS):
+        TASKS[index]["completed"] = True
+        save_tasks(TASKS)
+        return True
+    return False
 
 def delete_task(index):
     if 0 <= index < len(TASKS):
         removed = TASKS.pop(index)
-        save_tasks(TASKS)  # Sync to disk
+        save_tasks(TASKS)
         return removed
     return None
-

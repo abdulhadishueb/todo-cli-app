@@ -1,26 +1,20 @@
+import json
 import os
 
-# tasks.txt will be created in the project root
-FILENAME = "tasks.txt"
+FILENAME = "tasks.json"
 
 
 def load_tasks():
-    # If file does not exist, return empty list
     if not os.path.exists(FILENAME):
         return []
 
-    tasks = []
-
-    with open(FILENAME, "r") as file:
-        for line in file:
-            line = line.strip()
-            if line:   # ignore empty lines
-                tasks.append(line)
-
-    return tasks
+    try:
+        with open(FILENAME, "r") as file:
+            return json.load(file)
+    except:
+        return []
 
 
 def save_tasks(tasks):
     with open(FILENAME, "w") as file:
-        for task in tasks:
-            file.write(task + "\n")
+        json.dump(tasks, file, indent=4)
