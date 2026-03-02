@@ -1,6 +1,16 @@
+# Python
 __pycache__/
-*.py[cod]
+*.pyc
+
+# Virtual environments
 venv/
 .venv/
-tasks.txt
+
+# Environment variables
 .env
+
+# OS
+.DS_Store
+
+# IDE
+.vscode/
