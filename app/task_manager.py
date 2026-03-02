@@ -1,4 +1,4 @@
-
+from rich import print
 from  .utilities.file_handler import load_tasks, save_tasks, FILENAME
 
 TASKS = []
@@ -10,7 +10,7 @@ def load_into_memory():
 def add_task(task):
     TASKS.append(task)
     save_tasks(TASKS)  # Sync to disk
-    print(f"DEBUG: Saved {len(TASKS)} tasks to {FILENAME}")
+    print(f"DEBUG:[blue bold] Saved {len(TASKS)} tasks to[/blue bold] {FILENAME}")
 
 def delete_task(index):
     if 0 <= index < len(TASKS):

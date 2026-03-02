@@ -5,10 +5,10 @@ class TodoCLI:
     def display_tasks(self):
         
 
-        print(f"[bold green]\nTODO APP | \n{len(tm.TASKS)} Tasks[/bold green]")
+        print(f"[bold green]\nTODO APP | \n There are {len(tm.TASKS)} Tasks currently[/bold green]")
 
         if not tm.TASKS:
-            print("No tasks available.")
+            print("[red]No tasks available.[/red]")
         else:
             for i, task in enumerate(tm.TASKS, start=1):
                 print(f"[cyan]{i}.[/cyan] {task}")
