@@ -19,13 +19,13 @@ class TodoCLI:
     def display_tasks(self):
         
 
-        print(f"[bold green]\nTODO APP | \n There are {len(tm.TASKS)} Tasks currently[/bold green]")
+        print(f"[bold green]\nTODO APP: \n There are/is {len(tm.TASKS)} Tasks currently[/bold green]")
 
         if not tm.TASKS:
             print("[red]No tasks available.[/red]")
         else:
             for i, task in enumerate(tm.TASKS, start=1):
-                status = "[green]✔ Completed[/green]" if task["completed"] else "[yellow]• Pending[/yellow]"
+                status = "[green] Completed ✔[/green]" if task["completed"] else "[red]- Pending...[/red]"
                 print(f"[cyan]{i}.[/cyan] {task['description']}- {status}")
 
     def add_task_ui(self):
@@ -37,7 +37,8 @@ class TodoCLI:
         else:
             print("[red]Enter any task.[/red]")
 
-    def delete_task_ui(self):
+    def delete_task(self):
+        self.display_tasks()
         try:
             number = int(input("Enter task number to delete: "))
             removed = tm.delete_task(number - 1)
@@ -51,9 +52,9 @@ class TodoCLI:
             print("[red]Please enter a valid number.[/red]")
     def completed(self):
         try:
-            number = int(input("Enter task number to mark as completed: "))
+            done = int(input("Enter task number to mark as completed: "))
 
-            success = tm.complete_task(number - 1)
+            success = tm.complete_task(done - 1)
 
             if success:
                     print("[green]Task marked as completed.[/green]")
@@ -65,8 +66,6 @@ class TodoCLI:
     def start(self):
         tm.load_into_memory()
         while True:
-
-            self.display_tasks()
             print("\n1. View all your tasks.")
             print("2. Add Task.")
             print("3. Delete Task.")
@@ -77,16 +76,17 @@ class TodoCLI:
             
 
             if  choice == "1":
+                self.display_tasks()
                 
-            elif choice == "1":
+            elif choice == "2":
                 self.add_task_ui()
 
-            elif choice == "2":
-                self.delete_task_ui()
             elif choice == "3":
+                self.delete_task()
+            elif choice == "4":
                 self.completed()
 
-            elif choice == "4":
+            elif choice == "5":
                 print("[bold yellow]Come back![/bold yellow]")
                 break
 
