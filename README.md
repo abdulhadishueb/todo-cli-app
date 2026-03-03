@@ -28,7 +28,7 @@ When the app starts, it loads tasks from `tasks.json` into memory.
 When you add/delete/complete a task, it updates the list and saves back to `tasks.json`.
 
 > If you still have `tasks.txt` in the repo, it’s legacy/old storage.  
-> Your current code is using **JSON**, so `tasks.txt` is not needed (unless your team still uses it somewhere).
+> Your current code is using **JSON**,.
 
 ---
 
