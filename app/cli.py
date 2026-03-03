@@ -15,7 +15,7 @@ def load_tasks():
     except FileNotFoundError:
         return []
 class TodoCLI:
-
+    
     def display_tasks(self):
         
 
