@@ -1,120 +1,97 @@
-📝 Todo CLI App
-📌 Project Overview
+# ✅ Todo CLI App
 
-This is a modular Python Command-Line Interface (CLI) To-Do application developed as a group project.
+A modular Python Command-Line Interface (CLI) To-Do application built as a group project.
 
-The application allows users to:
+It lets you manage tasks from the terminal, and it **saves tasks to a JSON file** so they still exist after you close and re-run the program.
+
+---
+
+## 🚀 Features
+
+- View all tasks
+- Add a new task
+- Delete a task
+- Mark a task as completed ✅
+- Persistent storage using **JSON** (`app/tasks.json`)
+- Clean terminal output using the **rich** library
+- Modular structure (separation of CLI, logic, and storage)
+
+---
+
+## 🧠 How Persistence Works (Important)
+
+Tasks are stored in:
+
+- `app/tasks.json`
+
+When the app starts, it loads tasks from `tasks.json` into memory.
+When you add/delete/complete a task, it updates the list and saves back to `tasks.json`.
+
+> If you still have `tasks.txt` in the repo, it’s legacy/old storage.  
+> Your current code is using **JSON**, so `tasks.txt` is not needed (unless your team still uses it somewhere).
+
+---
+
+## 📦 Requirements
+
+- Python 3.x
+- rich
+
+Install dependency:
+
+```bash
+pip install rich
+▶️ How to Run
+
+From the project root folder:
+
+python __main__.py
+📂 Project Structure
+todo-cli-app/
+├── __main__.py
+├── README.md
+├── .gitignore
+├── tasks.txt                
+└── app/
+    ├── __init__.py
+    ├── cli.py
+    ├── task_manager.py
+    ├── tasks.json
+    └── utilities/
+        ├── file_handler.py
+        
+👥 Team Members
+
+Abdulhadi Mohamed — File Persistence
+
+Amon-Sudo — CLI Development
+
+Brian Wairagi — Task Logic 
+
+🧩 Concepts Demonstrated
+
+Modular Python project structure
+
+Separation of concerns (UI vs logic vs storage)
+
+File I/O (JSON read/write)
+
+Basic error handling (invalid input)
+
+Object-Oriented Programming (OOP) using TodoCLI class
+
+Git feature-branch workflow collaboration
+
+✅ Demo Flow
+
+Run the app
 
 Add tasks
 
 View tasks
 
-Delete tasks
+Mark a task as completed
 
-The system uses file-based persistence, meaning tasks are saved to a local file (tasks.txt) and remain available even after the program is closed and restarted.
+Delete a task
 
-👥 Team Members
-
-Abdulhadi Mohamed – Project Lead 
-
-Amon-Sudo – CLI Development
-
-Brian Wairagi – Task Logic & File Persistence
-
-🚀 Features
-
-Interactive CLI menu
-
-Add new tasks
-
-View existing tasks
-
-Delete tasks
-
-Persistent storage using tasks.txt
-
-Modular folder structure
-
-Git feature-branch workflow
-
-🗂️ Project Structure
-todo-cli-app/
-├── main.py
-├── tasks.txt
-├── README.md
-├── .gitignore
-├── app/
-│   ├── __init__.py
-│   ├── cli.py
-│   ├── task_manager.py
-│   └── utilities/
-│       ├── __init__.py
-│       └── file_handler.py
-▶️ How to Run the Application
-
-1️⃣ Clone the repository:
-
-git clone <repository-url>
-
-2️⃣ Navigate into the project directory:
-
-cd todo-cli-app
-
-3️⃣ Install required dependency:
-
-pip install rich
-
-4️⃣ Run the application:
-
-python main.py
-💾 Data Persistence
-
-Tasks are saved inside a file called:
-
-tasks.txt
-
-This file is automatically created when the first task is added.
-
-When the application starts, tasks are loaded from this file into memory.
-
-🔄 Git Collaboration Workflow
-
-We followed a feature-branch workflow:
-
-Each team member worked on a separate feature branch
-
-Meaningful commit messages were used
-
-Pull Requests were created for each feature
-
-Changes were reviewed before merging into the main branch
-
-This ensured clean collaboration and structured version control.
-
-📚 Concepts Demonstrated
-
-Modular Python project structure
-
-Separation of concerns
-
-File Input/Output (File I/O)
-
-Basic error handling
-
-Object-Oriented Programming (OOP)
-
-Feature-branch Git workflow
-
-Team collaboration
-
-✅ Demo Flow
-
-The application demonstrates:
-
-Adding a task
-
-Viewing tasks
-
-Deleting tasks
-
-Restarting the application and confirming tasks persist
+Restart the app and confirm tasks still exist (loaded from tasks.json)
